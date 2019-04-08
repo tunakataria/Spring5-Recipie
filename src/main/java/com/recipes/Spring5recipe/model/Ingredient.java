@@ -8,11 +8,23 @@ public class Ingredient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
+
+    String ingredientName;
+
     @ManyToOne
     Recipe recipe;
 
     @OneToOne
-    UoM uom;
+    UnitOfMeasure uom;
+
+    public Ingredient() {
+    }
+
+    public Ingredient(String ingredientName, UnitOfMeasure uom) {
+        this.ingredientName = ingredientName;
+        this.recipe = recipe;
+        this.uom = uom;
+    }
 
     public Long getId() {
         return id;
@@ -30,11 +42,20 @@ public class Ingredient {
         this.recipe = recipe;
     }
 
-    public UoM getUom() {
+    public UnitOfMeasure getUom() {
         return uom;
     }
 
-    public void setUom(UoM uom) {
+    public void setUom(UnitOfMeasure uom) {
         this.uom = uom;
+    }
+
+
+    public String getIngredientName() {
+        return ingredientName;
+    }
+
+    public void setIngredientName(String ingredientName) {
+        this.ingredientName = ingredientName;
     }
 }

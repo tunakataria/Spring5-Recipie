@@ -1,6 +1,7 @@
 package com.recipes.Spring5recipe.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -10,10 +11,22 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     private Integer cookingTime;
     private Integer preparationTime;
     private Integer rating;
     private String url;
+
+    @Enumerated(value = EnumType.STRING)
     private Difficulty difficulty;
     private String source;
     private String directions;
@@ -25,7 +38,30 @@ public class Recipe {
     Byte[] image;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
-    private Set<Ingredient> ingredients;
+    private Set<Ingredient> ingredients = new HashSet<>();
+
+    @ManyToMany(cascade = CascadeType.ALL,mappedBy = "recipes",fetch = FetchType.EAGER)
+    private Set<Category> categories = new HashSet<>();
+
+    public Recipe() {
+    }
+
+    public Recipe(Integer cookingTime, Integer preparationTime, String url, Difficulty difficulty) {
+        this.cookingTime = cookingTime;
+        this.preparationTime = preparationTime;
+        this.url = url;
+        this.difficulty = difficulty;
+        this.ingredients = ingredients;
+        this.categories = categories;
+    }
+
+    public Set<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
+    }
 
     public Long getId() {
         return id;

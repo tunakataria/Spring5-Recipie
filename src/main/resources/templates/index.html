@@ -6,6 +6,23 @@
 </head>
 <h2>This is the recipe title page!!!</h2>
 <body>
-
+<table>
+    <tbody>
+    <th>
+    <td>Cook time</td>
+    <td>rating</td>
+    <td>prep time</td>
+    </th>
+    <tr th:each="recipe : ${recipes}">
+        <td th:text="${recipe.cookingTime}">1</td>
+        <td th:text="${recipe.rating}">3star</td>
+        <td th:text="${recipe.preparationTime}">30 minuts</td>
+        <td th:text="${recipe.directions}">3star</td>
+        <td th:text="${recipe.difficulty}">30 minuts</td>
+        <td th:text="${recipe.notes}">3star</td>
+        <td th:text="${recipe.source}">30 minuts</td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
