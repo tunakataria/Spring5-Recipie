@@ -1,6 +1,5 @@
 package com.recipes.Spring5recipe.bootstrap;
 
-import com.recipes.Spring5recipe.controller.RecipeController;
 import com.recipes.Spring5recipe.model.*;
 import com.recipes.Spring5recipe.repositories.CategoryRepository;
 import com.recipes.Spring5recipe.repositories.RecipeRepository;
