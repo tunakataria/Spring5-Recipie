@@ -41,7 +41,6 @@ public class RecipeBootStrap implements ApplicationListener<ContextRefreshedEven
         malaiTikka.setName("Malai Tikka");
 
         newRecipes.add(malaiTikka);
-
         Category indian = new Category("Indian Cuisine");
         Category mughlai = new Category("Punjabi Cuisine");
         Category vegetarian = new Category("Vegetarian");

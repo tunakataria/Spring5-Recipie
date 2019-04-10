@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <th th:text="${recipe.name}">name</th>
+    <tr>
+        <td>Cooking Time</td>
+        <td th:text='${recipe.cookingTime}'>Cooking time</td>
+        <td>Preparation</td>
+        <td th:text="${recipe.preparationTime}">Preparation time</td>
+    </tr>
+    <tr>
+        <td>ingredients</td>
+        <!---/*@thymesVar id="recipe" type="com.recipes.Spring5recipe.model.Recipe"*/-->
+        <td><li th:each='ingredient : ${recipe.ingredients}' th:text='${ingredient.ingredientName}'>INakedest</li>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

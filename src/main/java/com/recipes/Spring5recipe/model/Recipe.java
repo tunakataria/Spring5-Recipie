@@ -1,10 +1,16 @@
 package com.recipes.Spring5recipe.model;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Getter
+@Setter
 public class Recipe {
 
     @Id
@@ -12,14 +18,6 @@ public class Recipe {
     Long id;
 
     private String name;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     private Integer cookingTime;
     private Integer preparationTime;
@@ -37,10 +35,10 @@ public class Recipe {
     @Lob
     Byte[] image;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "recipe")
     private Set<Ingredient> ingredients = new HashSet<>();
 
-    @ManyToMany(cascade = CascadeType.ALL,mappedBy = "recipes",fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "recipes", fetch = FetchType.EAGER)
     private Set<Category> categories = new HashSet<>();
 
     public Recipe() {
@@ -51,103 +49,5 @@ public class Recipe {
         this.preparationTime = preparationTime;
         this.url = url;
         this.difficulty = difficulty;
-        this.ingredients = ingredients;
-        this.categories = categories;
-    }
-
-    public Set<Category> getCategories() {
-        return categories;
-    }
-
-    public void setCategories(Set<Category> categories) {
-        this.categories = categories;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public Set<Ingredient> getIngredients() {
-        return ingredients;
-    }
-
-    public void setIngredients(Set<Ingredient> ingredients) {
-        this.ingredients = ingredients;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Integer getCookingTime() {
-        return cookingTime;
-    }
-
-    public void setCookingTime(Integer cookingTime) {
-        this.cookingTime = cookingTime;
-    }
-
-    public Integer getPreparationTime() {
-        return preparationTime;
-    }
-
-    public void setPreparationTime(Integer preparationTime) {
-        this.preparationTime = preparationTime;
-    }
-
-    public Integer getRating() {
-        return rating;
-    }
-
-    public void setRating(Integer rating) {
-        this.rating = rating;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public Difficulty getDifficulty() {
-        return difficulty;
-    }
-
-    public void setDifficulty(Difficulty difficulty) {
-        this.difficulty = difficulty;
-    }
-
-    public String getSource() {
-        return source;
-    }
-
-    public void setSource(String source) {
-        this.source = source;
-    }
-
-    public String getDirections() {
-        return directions;
-    }
-
-    public void setDirections(String directions) {
-        this.directions = directions;
-    }
-
-    public Notes getNotes() {
-        return notes;
-    }
-
-    public void setNotes(Notes notes) {
-        this.notes = notes;
-    }
-
-    public Byte[] getImage() {
-        return image;
-    }
-
-    public void setImage(Byte[] image) {
-        this.image = image;
     }
 }

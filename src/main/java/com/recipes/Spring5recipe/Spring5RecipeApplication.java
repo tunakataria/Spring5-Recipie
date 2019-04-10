@@ -1,8 +1,6 @@
 package com.recipes.Spring5recipe;
 
 import com.recipes.Spring5recipe.bootstrap.DataLoader;
-import com.recipes.Spring5recipe.model.Category;
-import com.recipes.Spring5recipe.model.Ingredient;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;

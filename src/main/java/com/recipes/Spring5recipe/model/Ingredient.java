@@ -1,61 +1,30 @@
 package com.recipes.Spring5recipe.model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
 @Entity
+@Data
+@NoArgsConstructor
 public class Ingredient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
-
-    String ingredientName;
+    private String ingredientName;
 
     @ManyToOne
-    Recipe recipe;
+    private Recipe recipe;
 
     @OneToOne
-    UnitOfMeasure uom;
-
-    public Ingredient() {
-    }
+     private UnitOfMeasure uom;
 
     public Ingredient(String ingredientName, UnitOfMeasure uom) {
         this.ingredientName = ingredientName;
-        this.recipe = recipe;
-        this.uom = uom;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Recipe getRecipe() {
-        return recipe;
-    }
-
-    public void setRecipe(Recipe recipe) {
-        this.recipe = recipe;
-    }
-
-    public UnitOfMeasure getUom() {
-        return uom;
-    }
-
-    public void setUom(UnitOfMeasure uom) {
         this.uom = uom;
     }
 
 
-    public String getIngredientName() {
-        return ingredientName;
-    }
-
-    public void setIngredientName(String ingredientName) {
-        this.ingredientName = ingredientName;
-    }
 }
