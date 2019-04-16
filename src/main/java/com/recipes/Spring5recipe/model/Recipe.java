@@ -1,6 +1,5 @@
 package com.recipes.Spring5recipe.model;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,18 +14,23 @@ public class Recipe {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     private String name;
-
     private Integer cookingTime;
     private Integer preparationTime;
     private Integer rating;
     private String url;
+    private String servings;
+    private String description;
+
+
 
     @Enumerated(value = EnumType.STRING)
     private Difficulty difficulty;
     private String source;
+
+    @Lob
     private String directions;
 
     @OneToOne(cascade = CascadeType.ALL)

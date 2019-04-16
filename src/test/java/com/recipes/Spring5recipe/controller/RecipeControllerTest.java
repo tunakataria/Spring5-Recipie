@@ -1,6 +1,8 @@
 package com.recipes.Spring5recipe.controller;
 
 import com.recipes.Spring5recipe.Services.RecipeService;
+import com.recipes.Spring5recipe.converters.RecipeCommandToRecipe;
+import com.recipes.Spring5recipe.converters.RecipeToRecipeCommand;
 import com.recipes.Spring5recipe.model.Ingredient;
 import com.recipes.Spring5recipe.model.Recipe;
 import org.junit.Before;
@@ -31,10 +33,18 @@ public class RecipeControllerTest {
     @Mock
     RecipeService recipeService;
 
+    @Mock
+    RecipeToRecipeCommand recipeToRecipeCommand;
+
+    @Mock
+    RecipeCommandToRecipe recipeCommandToRecipe;
+
+
+
     @Before
     public void setUp() throws Exception {
         initMocks(this);
-        recipeController = new RecipeController(recipeService);
+        recipeController = new RecipeController(recipeService,recipeToRecipeCommand,recipeCommandToRecipe);
     }
 
     @Test
