@@ -10,6 +10,7 @@ public class IngredientCommand {
 
     private Long id;
     private String ingredientName;
-    private UnitOfMeasureCommand unitOfMeasure;
+    private UnitOfMeasureCommand uom;
     private String amount;
+    private Long recipeId;
 }

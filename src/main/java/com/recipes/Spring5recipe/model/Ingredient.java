@@ -18,7 +18,7 @@ public class Ingredient {
     @ManyToOne
     private Recipe recipe;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
      private UnitOfMeasure uom;
 
     public Ingredient(String ingredientName, UnitOfMeasure uom) {

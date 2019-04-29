@@ -72,7 +72,7 @@ public class RecipeControllerTest {
         when(recipeService.findById(1L)).thenReturn(recipe);
         MockMvc mock = MockMvcBuilders.standaloneSetup(recipeController).build();
         try {
-            mock.perform(get("/recipe/show/1")).andExpect(status().isOk()).andExpect(view().name("recipe/show"));
+            mock.perform(get("/recipe/1/show")).andExpect(status().isOk()).andExpect(view().name("recipe/show"));
         } catch (Exception e) {
             e.printStackTrace();
         }

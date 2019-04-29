@@ -1,5 +1,6 @@
 package com.recipes.Spring5recipe.Services.springDataServices;
 
+import com.recipes.Spring5recipe.converters.IngredientToIngredientCommand;
 import com.recipes.Spring5recipe.converters.RecipeCommandToRecipe;
 import com.recipes.Spring5recipe.converters.RecipeToRecipeCommand;
 import com.recipes.Spring5recipe.model.Recipe;
@@ -16,11 +17,17 @@ import static org.mockito.MockitoAnnotations.initMocks;
 
 public class RecipeSpringDataServiceTest {
 
+    @Mock
     RecipeSpringDataService recipeSpringDataService;
 
+    @Mock
     RecipeToRecipeCommand recipeToRecipeCommand;
 
+    @Mock
     RecipeCommandToRecipe recipeCommandToRecipe;
+
+    @Mock
+    IngredientToIngredientCommand ingredientToIngredientCommand;
 
     @Mock
     RecipeRepository recipeRepository;
@@ -28,7 +35,7 @@ public class RecipeSpringDataServiceTest {
     @Before
     public void setUp() throws Exception {
         initMocks(this);
-        recipeSpringDataService = new RecipeSpringDataService(recipeRepository,recipeCommandToRecipe,recipeToRecipeCommand);
+        recipeSpringDataService = new RecipeSpringDataService(recipeRepository,recipeCommandToRecipe,recipeToRecipeCommand,ingredientToIngredientCommand);
     }
 
     @Test
